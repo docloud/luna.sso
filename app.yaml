@@ -1,0 +1,29 @@
+id: AQOZGpCk
+name: sso
+app:
+  host: 127.0.0.1
+  port: 8001
+  debug: false
+databases:
+  mongo:
+    alias: mongodb
+    host: 127.0.0.1
+    port: 27017
+    username: root
+    password: ""
+    database: sso
+  mysql:
+    alias: mysql
+    host: 127.0.0.1
+    port: 3306
+    username: root
+    password: ""
+    database: sso
+cache:
+  cache_type: redis
+  cache_redis_url: redis://127.0.0.1:6379/2
+celery:
+  worker: 4
+switch:
+  cron:
+    report_daily: False
