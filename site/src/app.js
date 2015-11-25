@@ -17,7 +17,7 @@ $(document).ready(function () {
     var services = {
         docmanage: {
             name: "文档中心",
-            url: "http://127.0.0.1:3001",
+            url: "http://127.0.0.1:3002/docmanage.html",
             logo: "http://7xj20w.com1.z0.glb.clouddn.com/images/doc_alpha.svg",
             description: "文档中心"
         }

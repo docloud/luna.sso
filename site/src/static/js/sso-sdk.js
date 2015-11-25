@@ -25,9 +25,9 @@
         $.sso = $.extend($.sso, config);
     };
 
-    var init = function () {
+    var init = function (config) {
+        setup(config);
         $.sso.token = $.urlParam("token");
-        $.sso.token = $.cookie("Authorization");
         if ($.sso.token == null) {
             window.location.href = $.sso.sso_url;
         } else {
@@ -45,6 +45,8 @@
             }
         }).done(function (data) {
             $.sso.user = data;
+        }).error(function (data) {
+            window.location.href = $.sso.sso_url;
         });
     };
 
@@ -58,6 +60,10 @@
             $.sso.token = data.token;
             load_user(token);
         });
+    };
+
+    var logout = function () {
+        $.removeCookie("Authorization");
     };
 
     $.sso = $.extend({
