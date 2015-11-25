@@ -21,13 +21,17 @@ class Error(Exception):
     USER_EXISTED = 1001
     USER_OR_PASS_ERROR = 1002
 
+    TOKEN_INVALID = 1010
+
     translate = {
         BOOTSTRAP_ERROR: u'系统内部错误',
         ARGUMENT_ERROR: u'参数错误',
 
         USER_NOT_FOUND: u'用户不存在',
         USER_EXISTED: u'用户已存在',
-        USER_OR_PASS_ERROR: u'用户名或密码错误'
+        USER_OR_PASS_ERROR: u'用户名或密码错误',
+
+        TOKEN_INVALID: u'无效的Token'
     }
 
     def __init__(self, code=0, message=""):

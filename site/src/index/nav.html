@@ -1,0 +1,17 @@
+<script id="nav-page" type="text/x-handlebars-template">
+    <div class="nav">
+        <ul class="pull-left">
+            <ul><img class="logo-banner" src="images/logo_alpha.svg"></ul>
+        </ul>
+        <ul class="pull-right">
+            <li class="dropdown">
+                <p class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                    <i class="glyphicon glyphicon-user"></i> {{_environ.user.username}}
+                </p>
+                <ul class="dropdown-menu">
+                    <li><p class="btn" data-state="logout">注销</p></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</script>

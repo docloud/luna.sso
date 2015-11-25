@@ -7,7 +7,8 @@ var browserify = require('gulp-browserify');
 
 var lib = {
     jquery: './node_modules/jquery/dist/**',
-    bootstrap: './node_modules/bootstrap/dist/**'
+    bootstrap: './node_modules/bootstrap/dist/**',
+    "jquery.cookie": './node_modules/jquery.cookie/*.js'
 };
 
 var app_folder = {
@@ -17,7 +18,7 @@ var app_folder = {
 var site_dir = 'site';
 
 gulp.task('default', ['library', 'site']);
-gulp.task('site', ['html', 'app', 'static']);
+gulp.task('site', ['html', 'app', 'static', 'cherry']);
 
 /*
  站点第三方依赖库
@@ -60,6 +61,12 @@ gulp.task('app', function () {
         .pipe(gulp.dest(site_dir));
 });
 
+gulp.task('cherry', function () {
+    gulp.src('./src/cherry.js')
+        .pipe(browserify())
+        .pipe(gulp.dest(site_dir + '/js'));
+});
+
 /*
  站点静态文件，其他文件
  */
@@ -75,6 +82,7 @@ gulp.task('static', function () {
 gulp.task('serve', function () {
     connect.server({
         root: ['site'],
+        host: '0.0.0.0',
         port: 3001,
         livereload: true,
         middleware: function (connect, opt) {

@@ -1,0 +1,20 @@
+<script id="auth-page" type="text/x-handlebars-template">
+    <div class="container">
+        {{#each services}}
+        <div class="container">
+            <a href="{{this.url}}?token={{../_environ.token}}">
+                <div class="col-md-4">
+                    <div class="text-block">
+                        <img src="{{this.logo}}">
+                        <h2>{{this.name}}</h2>
+                        <p class="small">{{this.description}}</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+        {{/each}}
+    </div>
+    <div>
+
+    </div>
+</script>

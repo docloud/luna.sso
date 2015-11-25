@@ -11,6 +11,7 @@ from luna import cache, View
 from luna.models import serialize
 from luna.decorators import route, use_args, use_kwargs
 from ..models.sso import User
+from ..exceptions import Error
 
 
 class Sso(View):
@@ -33,6 +34,7 @@ class Sso(View):
         user, token = self._login(**args)
         resp = make_response(jsonify({"token": token}))
         resp.headers["Authorization"] = token
+        resp.set_cookie("Authorization", token)
         return resp
 
     register_args = login_args
@@ -45,6 +47,7 @@ class Sso(View):
                                password=user.password)
         resp = make_response(jsonify({"token": token}))
         resp.headers["Authorization"] = token
+        resp.set_cookie("Authorization", token)
         return resp
 
     @route("user")
@@ -54,6 +57,8 @@ class Sso(View):
     })
     def get_user(self, token):
         uid = cache.get(token)
+        if not uid:
+            raise Error(Error.TOKEN_INVALID)
         user_data = serialize(User.get(uid) or User())
         user_data.pop("password")
         return user_data
