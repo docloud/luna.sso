@@ -12,7 +12,7 @@ var Handlebars = require("handlebars");
         return template(context);
     };
 
-    var switch_page = function (selector, container, context) {
+    var switch_page = function (selector, context, container) {
         var html = compile_template(selector, $.extend({}, context));
         container = (container == undefined) ? $.cherry.environ.dash : container;
         $(container).fadeOut("fast").html(html).fadeIn("fast");
@@ -49,7 +49,7 @@ var Handlebars = require("handlebars");
     };
 
     $.fn.switch_page = function (selector, context) {
-        $.cherry.switch_page(selector, $(this), context);
+        $.cherry.switch_page(selector, context, $(this));
     };
 
     $.cherry.setup = function (environ, state) {

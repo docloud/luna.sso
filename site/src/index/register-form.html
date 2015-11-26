@@ -1,6 +1,6 @@
 <script id="register-form" type="text/x-handlebars-template">
     <div class="col-md-8 col-md-offset-2">
-        <form action="{{_environ.url}}/sso/register" method="post" onsubmit="return false;">
+        <form action="{{_environ.sso_service}}/sso/register" method="post" onsubmit="return false;">
             <div class="form-group">
                 <label for="username">用户名</label>
                 <input type="text" class="form-control" id="username" name="username" placeholder="用户名">

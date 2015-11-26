@@ -4,7 +4,7 @@
         <div class="page-header">
             <h1>SSO 统一身份认证</h1>
         </div>
-        <form action="{{_environ.url}}/sso/login" method="post" onsubmit="return false;">
+        <form action="{{_environ.sso_service}}/sso/login" method="post" onsubmit="return false;">
             <div class="form-group">
                 <label for="username">用户名</label>
                 <input type="text" class="form-control" id="username" name="username" placeholder="用户名">
@@ -14,7 +14,7 @@
                 <input type="password" class="form-control" id="password" name="password" placeholder="密码">
             </div>
             <button class="login-form btn btn-primary" type="submit" data-done="login_success" data-error="error">登录</button>
-            <button class="login-form btn btn-success" type="submit" data-pages="register-form">注册</button>
+            <button class="login-form btn btn-success" data-pages="#register-form">注册</button>
         </form>
     </div>
 </script>
