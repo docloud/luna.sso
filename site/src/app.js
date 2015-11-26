@@ -10,7 +10,7 @@ $(document).ready(function () {
         user: null,
         title: "Luna 统一身份认证",
         url: "http://127.0.0.1:3001",
-        sso_service: "http://127.0.0.1:8001",
+        sso_service: "http://139.196.37.224:8001",
         dash: "#dashboard",
         token: $.cookie("Authorization")
     };
@@ -18,7 +18,7 @@ $(document).ready(function () {
     var services = {
         docmanage: {
             name: "文档中心",
-            url: "http://127.0.0.1:3002/docmanage.html",
+            url: "http://139.196.37.224/docloud/docmanage.html",
             logo: "http://7xj20w.com1.z0.glb.clouddn.com/images/doc_alpha.svg",
             description: "文档中心"
         }
