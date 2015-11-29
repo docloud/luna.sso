@@ -15,7 +15,8 @@ var Handlebars = require("handlebars");
     var switch_page = function (selector, context, container) {
         var html = compile_template(selector, $.extend({}, context));
         container = (container == undefined) ? $.cherry.environ.dash : container;
-        $(container).fadeOut("fast").html(html).fadeIn("fast");
+        $(container).hide();
+        $(container).html(html).slideDown("fast");
     };
 
     var set_state = function (state, context) {

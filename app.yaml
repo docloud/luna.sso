@@ -9,14 +9,14 @@ deploy:
   port: 8001
 databases:
   mongo:
-    alias: mongodb
+    dialect: mongodb
     host: 127.0.0.1
     port: 27017
     username: root
     password: ""
     database: sso
   mysql:
-    alias: mysql
+    dialect: mysql
     host: 127.0.0.1
     port: 3306
     username: root

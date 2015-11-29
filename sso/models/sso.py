@@ -6,7 +6,7 @@ Copyright 2015 SSO Project
 
 from sqlalchemy.exc import IntegrityError
 from sqlalchemy import Integer, String, Column, TEXT
-from . import ModelBase, Session
+from . import ModelBase, session
 from ..exceptions import Error
 
 
@@ -20,7 +20,7 @@ class User(ModelBase):
 
     @classmethod
     def login(cls, username, password):
-        user = Session().query(cls).filter(cls.username == username).first()
+        user = cls.query.filter(cls.username == username).first()
         if not user:
             raise Error(Error.USER_NOT_FOUND)
         if user.password != password:
@@ -30,7 +30,6 @@ class User(ModelBase):
     @classmethod
     def register(cls, user_data):
         user = cls(**user_data)
-        session = Session()
         session.add(user)
         try:
             session.commit()
@@ -41,7 +40,7 @@ class User(ModelBase):
 
     @classmethod
     def get(cls, uid):
-        return Session().query(User).get(uid)
+        return cls.query.get(uid)
 
 
 class Profile(ModelBase):

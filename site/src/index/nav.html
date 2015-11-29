@@ -1,17 +1,30 @@
 <script id="nav-page" type="text/x-handlebars-template">
-    <div class="nav">
-        <ul class="pull-left">
-            <ul><img class="logo-banner" src="images/logo_alpha.svg"></ul>
-        </ul>
-        <ul class="pull-right">
-            <li class="dropdown">
-                <p class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                    <i class="glyphicon glyphicon-user"></i> {{_environ.user.username}}
-                </p>
-                <ul class="dropdown-menu">
-                    <li><p class="btn" data-state="logout">注销</p></li>
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                        data-target="#nav-index" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <span class="navbar-brand" data-state="docs">
+                    <img class="logo-banner" src="images/luna_alpha.png">
+                </span>
+            </div>
+            <div class="collapse navbar-collapse" id="nav-index">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                            <i class="glyphicon glyphicon-user"></i> {{_environ.user.username}}
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="btn" data-state="logout">注销</a></li>
+                        </ul>
+                    </li>
                 </ul>
-            </li>
-        </ul>
-    </div>
+            </div>
+        </div>
+    </nav>
 </script>
